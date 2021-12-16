@@ -1,0 +1,9 @@
+[submodule "hub/taming-transformers"]
+	path = hub/taming-transformers
+	url = https://github.com/thegeniverse/taming-transformers
+[submodule "hub/CLIP"]
+	path = hub/CLIP
+	url = https://github.com/thegeniverse/CLIP
+[submodule "hub/aphantasia"]
+	path = hub/aphantasia
+	url = https://github.com/thegeniverse/aphantasia
