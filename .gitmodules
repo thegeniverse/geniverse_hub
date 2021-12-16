@@ -1,9 +1,9 @@
-[submodule "hub/taming-transformers"]
-	path = hub/taming-transformers
+[submodule "geniverse_hub/taming-transformers"]
+	path = geniverse_hub/taming-transformers
 	url = https://github.com/thegeniverse/taming-transformers
-[submodule "hub/CLIP"]
-	path = hub/CLIP
+[submodule "geniverse_hub/CLIP"]
+	path = geniverse_hub/CLIP
 	url = https://github.com/thegeniverse/CLIP
-[submodule "hub/aphantasia"]
-	path = hub/aphantasia
+[submodule "geniverse_hub/aphantasia"]
+	path = geniverse_hub/aphantasia
 	url = https://github.com/thegeniverse/aphantasia
