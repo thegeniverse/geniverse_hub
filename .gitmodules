@@ -1,0 +1,3 @@
+[submodule "geniverse_hub/taming"]
+	path = geniverse_hub/taming
+	url = https://github.com/thegeniverse/taming
