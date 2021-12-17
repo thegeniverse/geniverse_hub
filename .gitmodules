@@ -1,6 +1,0 @@
-[submodule "geniverse_hub/taming"]
-	path = geniverse_hub/taming
-	url = https://github.com/thegeniverse/taming
-[submodule "geniverse_hub/clip"]
-	path = geniverse_hub/clip
-	url = https://github.com/thegeniverse/clip
