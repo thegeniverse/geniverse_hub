@@ -1,18 +1,45 @@
 import setuptools
+import requests
 
-with open("README.md", "r", encoding="utf-8") as fh:
+from geniverse_hub.hub_config import HUB_CONFIG_DICT
+
+extra_deps = {}
+for module_config in HUB_CONFIG_DICT["modules"]:
+    module_owner = module_config["owner"]
+    module_name = module_config["name"]
+    module_dist = module_config["dist"]
+
+    print(f"Initiating {module_name} from {module_owner}")
+
+    requirements_url = ("https://raw.githubusercontent.com/"
+                        f"{module_owner}/"
+                        f"{module_name}/"
+                        f"{module_dist}/"
+                        "requirements.txt")
+
+    try:
+        extra_deps[module_name] = requests.get(
+            requirements_url).text.strip().split("\n")
+    except:
+        print(f"WARNING! {module_name} with no requirements.", )
+        print(f"There was an error retreiving {requirements_url}.")
+        continue
+
+print(extra_deps)
+
+with open(
+        "README.md",
+        "r",
+        encoding="utf-8",
+) as fh:
     long_description = fh.read()
-
-# with open("envs/geniverse-requirements.txt", "r", encoding="utf-8") as fh:
-#     requirements = fh.readlines()
 
 setuptools.setup(
     name="geniverse_hub",
     version="0.0.0",
     author="Javi and Vicc",
     author_email="vipermu97@gmail.com",
-    description=
-    "Library for downloading and loading generative AI models.",
+    description="Library for downloading and loading generative AI models.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/thegeniverse/geniverse_hub",
@@ -28,22 +55,6 @@ setuptools.setup(
     include_package_data=True,
     python_requires=">=3.6",
     install_requires=[
-        # *requirements,
-        # "clip_by_openai==0.1.1.5",
-        # "dall-e==0.1",
-        # "imageio-ffmpeg==0.4.3",
-        # "PyYAML==5.4.1",
-        # "omegaconf==2.0.6",
-        # "pytorch-lightning==1.3.3",
-        # "einops==0.3.0",
-        # "imageio==2.9.0",
-        # "torch==1.7.1",
-        # "torchvision==0.8.2",
-        # "tensorboard>=2.2.0",
-        # "transformers>=4.10.0",
-        # "flax>=0.3.4",
-        # "jax==0.2.20",
-
-        # "jaxlib==0.1.69+cuda110 -f https://storage.googleapis.com/jax-releases/jax_releases.html",
+        "gitpython==3.1.24",
     ],
 )

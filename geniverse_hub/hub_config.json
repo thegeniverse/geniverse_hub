@@ -1,0 +1,14 @@
+{
+    "modules":[
+        {
+            "owner": "thegeniverse",
+            "name": "taming",
+            "dist": "master"
+        },
+        {
+            "owner": "thegeniverse",
+            "name": "clip",
+            "dist": "main"
+        }
+    ]
+}

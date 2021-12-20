@@ -1,1 +1,7 @@
 .vscode/settings.json
+*.pyc
+__pycache__
+
+*.egg-info
+
+geniverse_hub//*
