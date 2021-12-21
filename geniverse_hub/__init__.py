@@ -1,8 +1,12 @@
-import pkgutil
+import os
+import sys
 
-__all__ = []
-for loader, module_name, is_pkg in pkgutil.walk_packages(__path__):
-    print("LOADING MODULE NAME", module_name)
-    __all__.append(module_name)
-    submodule = loader.find_module(module_name).load_module(module_name)
-    globals()[module_name] = submodule
+from geniverse_hub.hub_utils import HUB_CONFIG_DICT
+
+module_name_list = [conf["name"] for conf in HUB_CONFIG_DICT["modules"]]
+for module_name in module_name_list:
+    module_path = f"./geniverse_hub/{module_name}"
+
+    if os.path.exists(module_path):
+        print(f"{module_name} module found and added to path!")
+        sys.path.append(module_path)

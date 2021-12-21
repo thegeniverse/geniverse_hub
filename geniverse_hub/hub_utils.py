@@ -56,13 +56,6 @@ def load_from_hub(module_name: str, ):
 
     sys.path += file_path_list
 
-    for loader, module_name, is_pkg in pkgutil.walk_packages(file_path_list):
-        print("MODULE NAME", module_name)
-        submodule = loader.find_module(module_name).load_module(module_name)
-        globals()[module_name] = submodule
-
-    hub_module = importlib.import_module(f"geniverse_hub.{module_name}", )
-
-    hub_module_utils = hub_module.modeling_utils
+    hub_module_utils = importlib.import_module(f"{module_name}.modeling_utils")
 
     return hub_module_utils
