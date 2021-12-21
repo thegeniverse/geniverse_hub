@@ -3,5 +3,6 @@
 __pycache__
 
 *.egg-info
+dist
 
 geniverse_hub//*
