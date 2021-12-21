@@ -9,6 +9,11 @@
             "owner": "thegeniverse",
             "name": "clip",
             "dist": "main"
+        },
+        {
+            "owner": "thegeniverse",
+            "name": "glide",
+            "dist": "main"
         }
     ]
 }
