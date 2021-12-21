@@ -57,4 +57,5 @@ setuptools.setup(
     install_requires=[
         "gitpython==3.1.24",
     ],
+    extras_require=extra_deps,
 )
