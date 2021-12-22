@@ -1,10 +1,11 @@
-import json
 import os
+import urllib.request
+import json
 
 HUB_MODULE_DIR = os.path.dirname(__file__)
 
 HUB_CONFIG_PATH = os.path.join(HUB_MODULE_DIR, "./hub_config.json")
-HUB_CONFIG_DICT = {}
 
-with open(HUB_CONFIG_PATH, "rb") as hub_config_file:
-    HUB_CONFIG_DICT = json.load(hub_config_file)
+hub_config_url = "https://raw.githubusercontent.com/thegeniverse/geniverse_hub/main/geniverse_hub/hub_config.json"
+res = urllib.request.urlopen(hub_config_url).read()
+HUB_CONFIG_DICT = json.loads(res)
