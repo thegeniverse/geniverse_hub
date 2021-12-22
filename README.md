@@ -12,6 +12,8 @@ This will provide you with the required scripts to download and utilize the mode
 
 All the models are extracted from github repositories. Hence, one requirement for this library to work is to have _Git_ installed and working in your machine. All the available models are referenced in this [config file](./geniverse_hub/hub_config.json) with its owner, name and ditribution (i.e., the branch to be used within the github repo).
 
+In order to install the required dependencies for a required module, add the name of the module within squared brackets after the install command as follows:
+
 # Usage
 There are some common functionalities for downloading and loading models in the hub. The following is an example on how to use `VQGAN`:
 
