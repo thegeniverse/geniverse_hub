@@ -1,31 +1,30 @@
+# import json
 import setuptools
-import requests
+# import urllib.request
 
-from geniverse_hub.hub_config import HUB_CONFIG_DICT
+# hub_config_url = "https://raw.githubusercontent.com/thegeniverse/geniverse_hub/main/geniverse_hub/hub_config.json"
+# res = urllib.request.urlopen(hub_config_url).read()
+# HUB_CONFIG_DICT = json.loads(res)
 
-extra_deps = {}
-for module_config in HUB_CONFIG_DICT["modules"]:
-    module_owner = module_config["owner"]
-    module_name = module_config["name"]
-    module_dist = module_config["dist"]
+# extra_deps = {}
+# extra_deps["all"] = []
+# for module_config in HUB_CONFIG_DICT["modules"]:
+#     module_owner = module_config["owner"]
+#     module_name = module_config["name"]
+#     module_dist = module_config["dist"]
 
-    print(f"Initiating {module_name} from {module_owner}")
+#     print(f"Initiating {module_name} from {module_owner}")
 
-    requirements_url = ("https://raw.githubusercontent.com/"
-                        f"{module_owner}/"
-                        f"{module_name}/"
-                        f"{module_dist}/"
-                        "requirements.txt")
+#     try:
+#         requirement_name = f"{module_name} @ https://github.com/{module_owner}/{module_name}/archive/{module_dist}.zip"
+#         extra_deps[module_name] = [requirement_name]
+#         extra_deps["all"].append(requirement_name)
 
-    try:
-        extra_deps[module_name] = requests.get(
-            requirements_url).text.strip().split("\n")
-    except:
-        print(f"WARNING! {module_name} with no requirements.", )
-        print(f"There was an error retreiving {requirements_url}.")
-        continue
+#     except:
+#         print(f"WARNING! {module_name} not found.", )
+#         continue
 
-print(extra_deps)
+# print(extra_deps)
 
 with open(
         "README.md",
@@ -36,7 +35,7 @@ with open(
 
 setuptools.setup(
     name="geniverse_hub",
-    version="0.0.0",
+    version="0.0.4",
     author="Javi and Vicc",
     author_email="vipermu97@gmail.com",
     description="Library for downloading and loading generative AI models.",
@@ -54,8 +53,6 @@ setuptools.setup(
     packages=setuptools.find_packages(exclude=["tests*"]),
     include_package_data=True,
     python_requires=">=3.6",
-    install_requires=[
-        "gitpython==3.1.24",
-    ],
-    extras_require=extra_deps,
+    install_requires=[],
+    # extras_require=extra_deps,
 )
