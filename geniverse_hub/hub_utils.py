@@ -27,6 +27,6 @@ def load_from_hub(module_name: str, ):
         requirement_name = f"https://github.com/{module_owner}/{module_name}/archive/{module_dist}.zip"
         print(f"Whoops! You do not have {module_name} installed")
         print("Run the following command to install it:")
-        print(f"\x1b[6;30;47mpip install {requirement_name}")
+        print(f"pip install {requirement_name}")
 
         return None
